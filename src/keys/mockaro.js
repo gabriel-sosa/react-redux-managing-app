@@ -1,0 +1,1 @@
+export default 'fa5e4d60';
