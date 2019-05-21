@@ -5,6 +5,7 @@ import { Switch, Route, Redirect, Link } from "react-router-dom";
 
 import Home from "./dashboard/home";
 import Workers from "./dashboard/workers";
+import Projects from "./dashboard/projects";
 
 class Dashboard extends Component {
   state = {
@@ -31,7 +32,7 @@ class Dashboard extends Component {
     });
   };
   render() {
-    const { name, match } = this.props;
+    const { name, match, user } = this.props;
     return (
       <div>
         <Drawer
@@ -54,7 +55,9 @@ class Dashboard extends Component {
             key="avatar"
             onClick={() => this.setState({ drawerVisible: true })}
           >
-            <Avatar size="large">{name.first}</Avatar>
+            <Avatar src={user.avatar} size="large">
+              {name.first}
+            </Avatar>
           </Menu.Item>
           <Menu.Item key="home">
             <Link to={`${match.url}/home`}>Home</Link>
@@ -62,10 +65,14 @@ class Dashboard extends Component {
           <Menu.Item key="workers">
             <Link to={`${match.url}/workers`}>Workers</Link>
           </Menu.Item>
+          <Menu.Item key="projects">
+            <Link to={`${match.url}/projects`}>Projects</Link>
+          </Menu.Item>
         </Menu>
         <Switch>
           <Route path={`${match.url}/home`} component={Home} />
           <Route path={`${match.url}/workers`} component={Workers} />
+          <Route path={`${match.url}/projects`} component={Projects} />
           <Redirect to={`${match.url}/home`} />
         </Switch>
       </div>
