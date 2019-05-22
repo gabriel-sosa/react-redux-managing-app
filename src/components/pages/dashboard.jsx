@@ -81,8 +81,8 @@ class Dashboard extends Component {
 }
 
 const mapState = state => ({
-  name: state.requestReducer.response.name,
-  user: state.requestReducer.response
+  name: state.logInHandler.response.name,
+  user: state.logInHandler.response
 });
 
 export default connect(mapState)(Dashboard);

@@ -1,43 +1,59 @@
-export const SIGN_IN_USER = "SIGN_IN_USER";
-export const SIGN_OUT_USER = "SIGN_OUT_USER";
+export const LOGIN_REQUEST = {
+  SEND: "SEND_LOGIN_REQUEST",
+  RECIVE: "RECEIVE_LOGIN_REQUEST",
+  ERROR: "ERROR_LOGIN_REQUEST"
+};
+export const LOGOUT_USER = "LOGOUT_USER";
 
-export const SEND_REQUEST = "SEND_REQUEST";
-export const RECEIVE_REQUEST = "RECEIVE_REQUEST";
-export const ERROR_REQUEST = "ERROR_REQUEST";
-
-export function signIn(userName, password) {
+export function logOut() {
   return {
-    type: SIGN_IN_USER,
-    user: {
-      userName,
-      password
-    }
+    type: LOGOUT_USER
   };
 }
 
-export function signOut() {
+export function logIn(request) {
   return {
-    type: SIGN_OUT_USER
-  };
-}
-
-export function sendRequest(request) {
-  return {
-    type: SEND_REQUEST,
+    type: LOGIN_REQUEST.SEND,
     request
   };
 }
 
-export function recieveRequest(response) {
+export function recieveLogInRequest(response) {
   return {
-    type: RECEIVE_REQUEST,
+    type: LOGIN_REQUEST.RECIVE,
     response
   };
 }
 
-export function errorRequest(error) {
+export function errorLogInRequest(error) {
   return {
-    type: ERROR_REQUEST,
+    type: LOGIN_REQUEST.ERROR,
+    error
+  };
+}
+
+export const WORKERS_REQUEST = {
+  SEND: "SEND_WORKERS_REQUEST",
+  RECIVE: "RECEIVE_WORKERS_REQUEST",
+  ERROR: "ERROR_WORKERS_REQUEST"
+};
+
+export function sendWorkersRequest() {
+  return {
+    type: WORKERS_REQUEST.SEND
+  };
+}
+
+export function recieveWorkersRequest(response) {
+  return {
+    type: WORKERS_REQUEST.RECIVE,
+    response
+  };
+}
+
+export function errorWorkersRequest(error) {
+  return {
+    type: WORKERS_REQUEST.ERROR,
     error
   };
 }

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Form, Icon, Input, Button, Card } from "antd";
 import styled from "styled-components";
 
-import { sendRequest } from "../../redux/actions";
+import { logIn } from "../../redux/actions";
 
 const SCard = styled(Card)`
   max-width: 500px;
@@ -26,7 +26,7 @@ class LoginForm extends React.Component {
       <SCard title="login">
         <Form onSubmit={this.handleSubmit}>
           <Form.Item>
-            {getFieldDecorator("username", {
+            {getFieldDecorator("email", {
               rules: [
                 { required: true, message: "Please input your email!" },
                 { type: "email", message: "please input a valid email" }
@@ -60,7 +60,7 @@ class LoginForm extends React.Component {
 const WrappedLoginForm = Form.create({ name: "login" })(LoginForm);
 
 const mapDispatch = dispatch => ({
-  fetch: req => dispatch(sendRequest(req))
+  fetch: req => dispatch(logIn(req))
 });
 
 export default connect(

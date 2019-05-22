@@ -1,53 +1,52 @@
 import { combineReducers } from "redux";
 
-import {
-  SIGN_IN_USER,
-  SIGN_OUT_USER,
-  SEND_REQUEST,
-  RECEIVE_REQUEST,
-  ERROR_REQUEST
-} from "./actions";
+import { LOGIN_REQUEST, WORKERS_REQUEST } from "./actions";
 
-function userReducer(state = { user: {} }, action) {
+function logInHandler(state = { loading: false }, action) {
   switch (action.type) {
-    case SIGN_IN_USER:
+    case LOGIN_REQUEST.SEND:
       return {
-        ...state,
-        user: action.user
-      };
-    case SIGN_OUT_USER: {
-      return {
-        ...state,
-        user: {}
-      };
-    }
-    default:
-      return state;
-  }
-}
-
-function requestReducer(state = { loading: false }, action) {
-  switch (action.type) {
-    case SEND_REQUEST:
-      return {
-        ...state,
         loading: true
       };
-    case RECEIVE_REQUEST:
+    case LOGIN_REQUEST.RECIVE:
       return {
-        ...state,
         loading: false,
         response: action.response
       };
 
-    case ERROR_REQUEST:
+    case LOGIN_REQUEST.ERROR:
       return {
-        ...state,
-        loading: false
+        loading: false,
+        error: action.error
       };
     default:
       return state;
   }
 }
 
-export default combineReducers({ userReducer, requestReducer });
+function workersHandler(
+  state = { loading: false, response: { workers: [] } },
+  action
+) {
+  switch (action.type) {
+    case WORKERS_REQUEST.SEND:
+      return {
+        ...state,
+        loading: true
+      };
+    case WORKERS_REQUEST.RECIVE:
+      return {
+        loading: false,
+        response: action.response
+      };
+    case WORKERS_REQUEST.ERROR:
+      return {
+        loading: false,
+        error: action.error
+      };
+    default:
+      return state;
+  }
+}
+
+export default combineReducers({ logInHandler, workersHandler });
