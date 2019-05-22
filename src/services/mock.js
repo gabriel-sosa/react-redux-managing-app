@@ -214,3 +214,68 @@ export const projects = {
     }
   ]
 };
+
+export const notifications = {
+  notifications: [
+    {
+      id: 1,
+      title: "Y project changed status to: testing",
+      description:
+        "quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede"
+    },
+    {
+      id: 2,
+      title: "Y project changed status to: deployed",
+      description:
+        "aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut"
+    },
+    {
+      id: 3,
+      title: "Y project changed status to: failed",
+      description:
+        "augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet"
+    },
+    {
+      id: 4,
+      title: "Y project changed status to: failed",
+      description:
+        "accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer"
+    },
+    {
+      id: 5,
+      title: "Y project changed status to: testing",
+      description:
+        "tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus"
+    },
+    {
+      id: 6,
+      title: "X worker was added to the project Y",
+      description:
+        "quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet"
+    },
+    {
+      id: 7,
+      title: "X worker was removed from the project Y",
+      description:
+        "felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan"
+    },
+    {
+      id: 8,
+      title: "Y project changed status to: testing",
+      description:
+        "ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris"
+    },
+    {
+      id: 9,
+      title: "X worker was removed from the project Y",
+      description:
+        "sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero"
+    },
+    {
+      id: 10,
+      title: "X worker was added to the project Y",
+      description:
+        "mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi"
+    }
+  ]
+};

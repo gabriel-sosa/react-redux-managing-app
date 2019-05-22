@@ -1,4 +1,4 @@
-import { logUser, workers, projects } from "./mock";
+import { logUser, workers, projects, notifications } from "./mock";
 
 export function logInUser(email, password) {
   return new Promise(res => setTimeout(() => res(logUser), 1000));
@@ -10,4 +10,8 @@ export function getWorkers() {
 
 export function getProjects() {
   return new Promise(res => setTimeout(() => res(projects), 1000));
+}
+
+export function getNotifications() {
+  return new Promise(res => setTimeout(() => res(notifications), 1000));
 }

@@ -1,6 +1,11 @@
 import { combineReducers } from "redux";
 
-import { LOGIN_REQUEST, WORKERS_REQUEST, PROJECTS_REQUEST } from "./actions";
+import {
+  LOGIN_REQUEST,
+  WORKERS_REQUEST,
+  PROJECTS_REQUEST,
+  NOTIFICATIONS_REQUEST
+} from "./actions";
 
 function logInHandler(state = { loading: false }, action) {
   switch (action.type) {
@@ -74,8 +79,34 @@ function projectsHandler(
   }
 }
 
+function notificationsHandler(
+  state = { loading: false, response: { notifications: [] } },
+  action
+) {
+  switch (action.type) {
+    case NOTIFICATIONS_REQUEST.SEND:
+      return {
+        ...state,
+        loading: true
+      };
+    case NOTIFICATIONS_REQUEST.RECEIVE:
+      return {
+        response: action.response,
+        loading: false
+      };
+    case NOTIFICATIONS_REQUEST.ERROR:
+      return {
+        error: action.error,
+        loading: false
+      };
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
   logInHandler,
   workersHandler,
-  projectsHandler
+  projectsHandler,
+  notificationsHandler
 });

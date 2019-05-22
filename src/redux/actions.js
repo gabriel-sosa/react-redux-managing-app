@@ -83,3 +83,29 @@ export function errorProjectsRequest(error) {
     error
   };
 }
+
+export const NOTIFICATIONS_REQUEST = {
+  SEND: "SEND_NOTIFICATIONS_REQUEST",
+  RECEIVE: "RECEIVE_NOTIFICATIONS_REQUEST",
+  ERROR: "ERROR_NOTIFICATIONS_REQUEST"
+};
+
+export function sendNotificationsRequest() {
+  return {
+    type: NOTIFICATIONS_REQUEST.SEND
+  }
+}
+
+export function receiveNotificationsRequest(response) {
+  return {
+    type: NOTIFICATIONS_REQUEST.RECEIVE,
+    response
+  }
+}
+
+export function errorNotificationsRequest(error) {
+  return {
+    type: NOTIFICATIONS_REQUEST.ERROR,
+    error
+  }
+}
