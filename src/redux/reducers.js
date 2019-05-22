@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-import { LOGIN_REQUEST, WORKERS_REQUEST } from "./actions";
+import { LOGIN_REQUEST, WORKERS_REQUEST, PROJECTS_REQUEST } from "./actions";
 
 function logInHandler(state = { loading: false }, action) {
   switch (action.type) {
@@ -49,4 +49,33 @@ function workersHandler(
   }
 }
 
-export default combineReducers({ logInHandler, workersHandler });
+function projectsHandler(
+  state = { loading: false, response: { projects: [] } },
+  action
+) {
+  switch (action.type) {
+    case PROJECTS_REQUEST.SEND:
+      return {
+        ...state,
+        loading: true
+      };
+    case PROJECTS_REQUEST.RECIVE:
+      return {
+        loading: false,
+        response: action.response
+      };
+    case PROJECTS_REQUEST.ERROR:
+      return {
+        loading: false,
+        error: action.error
+      };
+    default:
+      return state;
+  }
+}
+
+export default combineReducers({
+  logInHandler,
+  workersHandler,
+  projectsHandler
+});

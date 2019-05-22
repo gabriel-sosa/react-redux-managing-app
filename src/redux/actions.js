@@ -57,3 +57,29 @@ export function errorWorkersRequest(error) {
     error
   };
 }
+
+export const PROJECTS_REQUEST = {
+  SEND: "SEND_PROJECTS_REQUEST",
+  RECIVE: "RECEIVE_PROJECTS_REQUEST",
+  ERROR: "ERROR_PROJECTS_REQUEST"
+};
+
+export function sendProjectsRequest() {
+  return {
+    type: PROJECTS_REQUEST.SEND
+  };
+}
+
+export function receiveProjectsRequest(response) {
+  return {
+    type: PROJECTS_REQUEST.RECIVE,
+    response
+  };
+}
+
+export function errorProjectsRequest(error) {
+  return {
+    type: PROJECTS_REQUEST.ERROR,
+    error
+  };
+}
