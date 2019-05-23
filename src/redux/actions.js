@@ -139,3 +139,30 @@ export function errorWorkerRequest(error) {
     error
   };
 }
+
+export const PROJECT_REQUEST = {
+  SEND: "SEND_PROJECT_REQUEST",
+  RECEIVE: "RECEIVE_PROJECT_REQUEST",
+  ERROR: "ERROR_PROJECT_REQUEST"
+};
+
+export function sendProjectRequest(projectName) {
+  return {
+    type: PROJECT_REQUEST.SEND,
+    request: projectName
+  };
+}
+
+export function receiveProjectRequest(response) {
+  return {
+    type: PROJECT_REQUEST.RECEIVE,
+    response
+  };
+}
+
+export function errorProjectRequest(error) {
+  return {
+    type: PROJECT_REQUEST.ERROR,
+    error
+  };
+}

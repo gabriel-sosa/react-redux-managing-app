@@ -43,7 +43,9 @@ class Worker extends Component {
           <p>Gender: {worker.gender}</p>
           <p>Position: {worker.position}</p>
           <p>Race: {worker.race}</p>
-          <p>email: {worker.email}</p>
+          <p>
+            email: <a href={`mailto:${worker.email}`}>{worker.email}</a>
+          </p>
           <p>Currently working on: {worker.currentProject}</p>
         </SCard>
       );

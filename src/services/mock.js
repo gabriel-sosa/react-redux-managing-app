@@ -298,3 +298,46 @@ export const worker = {
   email: "detteridge0@ifeng.com",
   currentProject: "Y-find"
 };
+
+export const project = {
+  name: "Treeflex",
+  version: "0.8.0",
+  client: "Realcube",
+  email: "citzkovici0@java.com",
+  status: "deployed",
+  workers: [
+    {
+      name: "Addi Sterman",
+      position: "Analyst Programmer",
+      avatar: "https://robohash.org/fugaminustotam.jpg?size=50x50&set=set1"
+    },
+    {
+      name: "Jaimie Guirau",
+      position: "Research Assistant III",
+      avatar:
+        "https://robohash.org/voluptasidconsequatur.bmp?size=50x50&set=set1"
+    },
+    {
+      name: "Jaymie Saiz",
+      position: "Civil Engineer",
+      avatar: "https://robohash.org/aliquamvoluptasaut.png?size=50x50&set=set1"
+    },
+    {
+      name: "Alick O'Dwyer",
+      position: "Financial Advisor",
+      avatar: "https://robohash.org/estcorporisut.png?size=50x50&set=set1"
+    },
+    {
+      name: "Nani Pinock",
+      position: "Assistant Professor",
+      avatar:
+        "https://robohash.org/blanditiissintveritatis.bmp?size=50x50&set=set1"
+    },
+    {
+      name: "Kevin Byng",
+      position: "Research Assistant III",
+      avatar: "https://robohash.org/quonobisodio.bmp?size=50x50&set=set1"
+    }
+  ],
+  budget: "$73174.10"
+};

@@ -1,12 +1,15 @@
-import { put, takeLatest } from "redux-saga/effects";
+import { put, takeLatest, all } from "redux-saga/effects";
 import { notification } from "antd";
 
 import {
+  PROJECT_REQUEST,
+  receiveProjectRequest,
+  errorProjectRequest,
   PROJECTS_REQUEST,
   receiveProjectsRequest,
   errorProjectsRequest
 } from "../redux/actions";
-import { getProjects } from "../services/api";
+import { getProject, getProjects } from "../services/api";
 
 function* projectsCall() {
   try {
@@ -21,6 +24,27 @@ function* projectsCall() {
   }
 }
 
-export default function* watchProjects() {
+function* watchProjects() {
   yield takeLatest(PROJECTS_REQUEST.SEND, projectsCall);
+}
+
+function* projectCall({ request }) {
+  try {
+    const data = yield getProject(request);
+    yield put(receiveProjectRequest(data));
+  } catch (err) {
+    notification.open({
+      message: "error getting project",
+      description: err.statusText
+    });
+    yield put(errorProjectRequest(err));
+  }
+}
+
+function* watchProject() {
+  yield takeLatest(PROJECT_REQUEST.SEND, projectCall);
+}
+
+export default function* root() {
+  yield all([watchProject(), watchProjects()]);
 }

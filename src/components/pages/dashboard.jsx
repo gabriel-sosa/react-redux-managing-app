@@ -6,6 +6,7 @@ import { Switch, Route, Redirect, Link } from "react-router-dom";
 import Home from "./dashboard/home";
 import Worker from "./dashboard/worker";
 import Workers from "./dashboard/workers";
+import Project from "./dashboard/project";
 import Projects from "./dashboard/projects";
 
 class Dashboard extends Component {
@@ -78,7 +79,12 @@ class Dashboard extends Component {
             path={`${match.url}/workers/:firstName-:lastName`}
             component={Worker}
           />
-          <Route path={`${match.url}/projects`} component={Projects} />
+          <Route exact path={`${match.url}/projects`} component={Projects} />
+          <Route
+            exact
+            path={`${match.url}/projects/:projectName`}
+            component={Project}
+          />
           <Redirect to={`${match.url}/home`} />
         </Switch>
       </div>

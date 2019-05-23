@@ -4,6 +4,7 @@ import {
   LOGIN_REQUEST,
   WORKER_REQUEST,
   WORKERS_REQUEST,
+  PROJECT_REQUEST,
   PROJECTS_REQUEST,
   NOTIFICATIONS_REQUEST
 } from "./actions";
@@ -126,10 +127,32 @@ function workerHandler(state = {}, action) {
   }
 }
 
+function projectHandler(state = {}, action) {
+  switch (action.type) {
+    case PROJECT_REQUEST.SEND:
+      return {
+        loading: true
+      };
+    case PROJECT_REQUEST.RECEIVE:
+      return {
+        loading: false,
+        response: action.response
+      };
+    case PROJECT_REQUEST.ERROR:
+      return {
+        loading: false,
+        error: action.error
+      };
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
   logInHandler,
   workerHandler,
   workersHandler,
+  projectHandler,
   projectsHandler,
   notificationsHandler
 });
