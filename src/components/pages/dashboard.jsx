@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Switch, Route, Redirect, Link } from "react-router-dom";
 
 import Home from "./dashboard/home";
+import Worker from "./dashboard/worker";
 import Workers from "./dashboard/workers";
 import Projects from "./dashboard/projects";
 
@@ -71,7 +72,12 @@ class Dashboard extends Component {
         </Menu>
         <Switch>
           <Route path={`${match.url}/home`} component={Home} />
-          <Route path={`${match.url}/workers`} component={Workers} />
+          <Route exact path={`${match.url}/workers`} component={Workers} />
+          <Route
+            exact
+            path={`${match.url}/workers/:firstName-:lastName`}
+            component={Worker}
+          />
           <Route path={`${match.url}/projects`} component={Projects} />
           <Redirect to={`${match.url}/home`} />
         </Switch>

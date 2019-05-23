@@ -14,7 +14,7 @@ function* projectsCall() {
     yield put(receiveNotificationsRequest(data));
   } catch (err) {
     notification.open({
-      message: "error getting projects",
+      message: "error getting notifications",
       description: err.statusText
     });
     yield put(errorNotificationsRequest(err));

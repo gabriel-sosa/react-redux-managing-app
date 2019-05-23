@@ -279,3 +279,22 @@ export const notifications = {
     }
   ]
 };
+
+export const worker = {
+  avatar: "https://robohash.org/providentadaut.jpg?size=300x300&set=set1",
+  name: {
+    first: "Danella",
+    last: "Etteridge"
+  },
+  gender: "Female",
+  position: "Mechanical Systems Engineer",
+  "main language": "Amharic",
+  race: "Ottawa",
+  address: {
+    country: "Greece",
+    city: "Kálamos",
+    street: "0 Manitowish Crossing"
+  },
+  email: "detteridge0@ifeng.com",
+  currentProject: "Y-find"
+};

@@ -1,7 +1,15 @@
-import { logUser, workers, projects, notifications } from "./mock";
+import { logUser, worker, workers, projects, notifications } from "./mock";
 
 export function logInUser(email, password) {
   return new Promise(res => setTimeout(() => res(logUser), 1000));
+}
+
+export function getWorker(firstName, lastName) {
+  worker.name = {
+    first: firstName,
+    last: lastName
+  };
+  return new Promise(res => setTimeout(() => res(worker), 1000));
 }
 
 export function getWorkers() {

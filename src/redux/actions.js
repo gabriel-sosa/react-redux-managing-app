@@ -93,19 +93,49 @@ export const NOTIFICATIONS_REQUEST = {
 export function sendNotificationsRequest() {
   return {
     type: NOTIFICATIONS_REQUEST.SEND
-  }
+  };
 }
 
 export function receiveNotificationsRequest(response) {
   return {
     type: NOTIFICATIONS_REQUEST.RECEIVE,
     response
-  }
+  };
 }
 
 export function errorNotificationsRequest(error) {
   return {
     type: NOTIFICATIONS_REQUEST.ERROR,
     error
-  }
+  };
+}
+
+export const WORKER_REQUEST = {
+  SEND: "SEND_WORKER_REQUEST",
+  RECEIVE: "RECEIVE_WORKER_REQUEST",
+  ERROR: "ERROR_WORKER_REQUEST"
+};
+
+export function sendWorkerRequest(firstName, lastName) {
+  return {
+    type: WORKER_REQUEST.SEND,
+    request: {
+      firstName,
+      lastName
+    }
+  };
+}
+
+export function recieveWorkerRequest(response) {
+  return {
+    type: WORKER_REQUEST.RECEIVE,
+    response
+  };
+}
+
+export function errorWorkerRequest(error) {
+  return {
+    type: WORKER_REQUEST.ERROR,
+    error
+  };
 }

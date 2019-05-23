@@ -8,7 +8,7 @@ import { Spinner } from "../../shared/spinner";
 
 const SCard = styled(Card)`
   width: 29.3%;
-  margin: 2%;
+  margin: 2% 2% 0;
 `;
 
 const SDiv = styled.div`

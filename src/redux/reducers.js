@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 
 import {
   LOGIN_REQUEST,
+  WORKER_REQUEST,
   WORKERS_REQUEST,
   PROJECTS_REQUEST,
   NOTIFICATIONS_REQUEST
@@ -104,8 +105,30 @@ function notificationsHandler(
   }
 }
 
+function workerHandler(state = {}, action) {
+  switch (action.type) {
+    case WORKER_REQUEST.SEND:
+      return {
+        loading: true
+      };
+    case WORKER_REQUEST.RECEIVE:
+      return {
+        loading: false,
+        response: action.response
+      };
+    case WORKER_REQUEST.ERROR:
+      return {
+        loading: false,
+        error: action.error
+      };
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
   logInHandler,
+  workerHandler,
   workersHandler,
   projectsHandler,
   notificationsHandler
